@@ -1,0 +1,12 @@
+language: python
+python:
+  - "2.7"
+before_script:
+  - wget https://github.com/google/protobuf/releases/download/v3.5.1/protoc-3.5.1-linux-x86_64.zip -O /tmp/protoc.zip
+  - cd /tmp && unzip /tmp/protoc.zip
+  - sudo cp bin/protoc /usr/bin/ && sudo chmod ugo+x /usr/bin/protoc
+  - cd /tmp && git clone https://github.com/quattor/aquilon-protocols.git
+  - cd aquilon-protocols && git checkout upstream
+  - ./setup.py build && sudo ./setup.py install
+script:
+  - cd $TRAVIS_BUILD_DIR && tests/runtests.py -c tests/unittest.conf.noms -f --assume_yes
