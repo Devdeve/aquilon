@@ -1,7 +1,0 @@
-#!/bin/bash
-
-echo "Ticket cache: FILE:/tmp/krb5cc_$(id -u)
-Default principal: $USER@EXAMPLE.QUATTOR.ORG
-
-Valid starting     Expires            Service principal
-$(date +'%m/%d/%Y %H:%M:%S')  $(date --date '6 hours' +'%m/%d/%Y %H:%M:%S')  krbtgt/EXAMPLE.QUATTOR.ORG@EXAMPLE.QUATTOR.ORG"
